@@ -30,3 +30,4 @@ gradle
 gradlew
 gradlew.bat
 .gradle/
+/atomic-loan/src/main/java/module-info.java
