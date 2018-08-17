@@ -14,18 +14,10 @@ public class AtomicSupplier<T> {
         this.reference = new AtomicReference<>(null);
     }
 
-    public boolean isSet() {
-        return reference.get() != null;
-    }
-
     public T get() {
         return reference.get() != null
                 ? reference.get()
                 : reference.updateAndGet(current -> current == null ? supplier.get() : current);
-    }
-
-    public T clear() {
-        return reference.getAndSet(null);
     }
 
     @Override
