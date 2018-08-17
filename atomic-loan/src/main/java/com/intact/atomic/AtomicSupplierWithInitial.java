@@ -22,7 +22,7 @@ public class AtomicSupplierWithInitial<T> {
 
     public T computeIfInitial() {
         return isInitial()
-                ? reference.updateAndGet(current -> current == null ? supplier.get() : current)
+                ? reference.updateAndGet(current -> isInitial() ? supplier.get() : current)
                 : reference.get();
     }
 
